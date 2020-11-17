@@ -6,6 +6,8 @@ import requests
 import json
 # import logging
 
+KAKAO_CLIENT_ID = "112eb1b619716055b81170ca51fe62d9"
+KAKAO_SECRET_KEY = "NTxKzHqBIyqnhXs9RRBFJP19fgyC7ckr"
 
 # CONFIG
 oauth_blueprint = Blueprint('oauth', __name__, template_folder='templates', url_prefix='/oauth')
@@ -115,7 +117,7 @@ def kakao_check():
 
     try:
         url = "https://kauth.kakao.com/oauth/token"
-        payload = "grant_type=authorization_code&client_id=6ef324866280c3dc5ebd906aaedf3d3c&client_secret=x2tNvRbgHFvyKfqrP1QBLb3HfKN4QGzc&code=" \
+        payload = "grant_type=authorization_code&client_id="+KAKAO_CLIENT_ID+"&client_secret="+KAKAO_SECRET_KEY+"&code=" \
                   + str(code) + "&state=test"
         headers = {
             'Content-Type': "application/x-www-form-urlencoded",
