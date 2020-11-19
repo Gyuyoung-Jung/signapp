@@ -23,12 +23,13 @@ class User(db.Model):
     refresh_token = db.Column(db.String(100), nullable=True)
     role = db.Column(db.String(10), default='user')
 
-    def __init__(self, nid, kid, email, name, nickname, get_push, device, role='user'):
+    def __init__(self, nid, kid, email, name, nickname, push_token, get_push, device, role='user'):
         self.nid = nid
         self.kid = kid
         self.email = email
         self.name = name
         self.nickname = nickname
+        self.push_token = push_token
         self.get_push = get_push
         self.device = device
         self.authenticated = False

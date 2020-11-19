@@ -81,7 +81,7 @@ def users():
                     nickname = user_profile['kakao_account']['profile']['nickname']
                 # user_profile = json.loads(response_body)
 
-            new_user = User(nid, kid, email, None, nickname, get_push, device)
+            new_user = User(nid, kid, email, None, nickname, push_token, get_push, device)
             db.session.add(new_user)
             db.session.commit()
 
